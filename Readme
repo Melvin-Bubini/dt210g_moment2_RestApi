@@ -1,0 +1,20 @@
+# Todo API
+
+Detta är ett RESTful API för att hantera Todo-poster, byggt med ASP.NET Core och SQLite som databas. API:et tillåter användare att skapa, läsa, uppdatera och ta bort Todo-poster samt att filtrera dem baserat på deras status.
+
+## Funktioner
+
+- **GET /todoitems**: Hämtar alla Todo-poster.
+- **GET /todoitems/{id}**: Hämtar en Todo-post baserat på ID.
+- **GET /todoitems/notStarted**: Hämtar alla Todo-poster med statusen "Ej påbörjad".
+- **GET /todoitems/inProgress**: Hämtar alla Todo-poster med statusen "Pågående".
+- **GET /todoitems/completed**: Hämtar alla Todo-poster med statusen "Avklarad".
+- **POST /todoitems**: Skapar en ny Todo-post.
+- **PUT /todoitems/{id}**: Uppdaterar en befintlig Todo-post baserat på ID.
+- **DELETE /todoitems/{id}**: Tar bort en Todo-post baserat på ID.
+
+## Installation
+
+1. Klona detta repository:
+   ```bash
+   git clone <repository-url>
