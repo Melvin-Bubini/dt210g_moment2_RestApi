@@ -43,7 +43,7 @@ if (app.Environment.IsDevelopment())
 app.UseCors("AllowFrontend");
 
 app.MapGet("/todoitems", async (TodoDb db) =>
-    await db.Todos.ToListAsync());
+    await db.Todos.OrderByDescending(t => t.Id).ToListAsync());
 
 app.MapGet("/todoitems/notStarted", async (TodoDb db) =>
 {
