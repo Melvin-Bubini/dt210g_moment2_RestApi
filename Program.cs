@@ -13,6 +13,18 @@ builder.Services.AddOpenApiDocument(config =>
     config.Version = "v1";
 });
 
+// Lägger till CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:5173") // Tillåt anrop från frontend
+                  .AllowAnyMethod()
+                  .AllowAnyHeader();
+        });
+});
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -26,6 +38,9 @@ if (app.Environment.IsDevelopment())
         config.DocExpansion = "list";
     });
 }
+
+// Aktiverar CORS 
+app.UseCors("AllowFrontend");
 
 app.MapGet("/todoitems", async (TodoDb db) =>
     await db.Todos.ToListAsync());
